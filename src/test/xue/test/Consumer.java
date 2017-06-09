@@ -2,8 +2,8 @@ package test.xue.test;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import xue.entity.Sample;
-import xue.service.SampleService;
+import xue.entity.Simple;
+import xue.service.SimpleService;
 
 public class Consumer {
 	public static void main(String[] args) {
@@ -11,14 +11,14 @@ public class Consumer {
 				new String[]{"dubbo-consumer.xml"});
 		context.start();
 		
-		SampleService sampleService = (SampleService) context.getBean("sampleService");
+		SimpleService simpleService = (SimpleService) context.getBean("simpleService");
 		
-		String hello = sampleService.sayHello("tom");
+		String hello = simpleService.sayHello("tom");
 		System.out.println(hello);
 		
-		Sample sample = sampleService.getSample();
-		System.out.println(sample.getName());
-		System.out.println(sample.getAge());
-		System.out.println(sample.getMap().get("zhangsan"));
+		Simple simple = simpleService.getSimple();
+		System.out.println(simple.getName());
+		System.out.println(simple.getAge());
+		System.out.println(simple.getMap().get("zhangsan"));
 	}
 }

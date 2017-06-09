@@ -14,7 +14,7 @@
 	
 	<dubbo:registry address="zookeeper://192.168.1.191:2181?backup=192.168.1.220:2181,192.168.1.221:2181"/>
 	
-	<dubbo:protocol name="dubbo"/>
+	<dubbo:protocol name="dubbo"  serialization="kryo" optimizer="xue.utils.SerializationOptimizerImpl"/>
 	
-	<dubbo:reference interface="xue.service.SampleService" id="sampleService"/>
+	<dubbo:reference interface="xue.service.SimpleService" id="simpleService"/>
 </beans>
